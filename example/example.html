@@ -1,0 +1,36 @@
+<!-- test case -->
+<html>
+	<head>
+		<link href="style.css" type="text/css" rel="stylesheet"/>
+	</head>
+<body>
+
+	<div id="imagelist">
+		<img src="test.jpg" id="image" width="500" title="https://en.wikipedia.org/wiki/Sunrise#/media/File:Little_Gasparilla_sunrise.jpg" />
+	</div>
+
+	<input type="text" name="result" id="result" value="" />
+	
+	<script src="../filter.js" type="text/javascript"></script>
+	<script>
+	
+	var filter = new filters; 
+	
+	// format values: filter : min : max : default value 
+	
+	let filterlist = [
+		'Brightness:0:200:100',
+		'Contrast:0:200:100',
+		'Grayscale:0:100:0',
+		'Hue:0:360:0',
+		'Invert:0:100:0',
+		'Opacity:0:100:100',
+		'Saturate:0:10:0',
+		'Sepia:0:100:0',
+		'Blur:0:10:0'
+	];
+
+	filter.createFilters('imagelist','image',filterlist,'result');
+	</script>
+</body>
+</html>

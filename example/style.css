@@ -1,0 +1,17 @@
+body {
+	padding: 30px;
+}
+
+#controls {
+	width: 100px;
+}
+		
+#controls input[type="range"] {
+	clear:both;
+	width:100px;
+}
+
+input {
+	padding: 3px;
+}
+		
