@@ -4,10 +4,10 @@ class filters {
 	
     createFilters(input, imageid, filter, result) {
 		
-        this.aim 	 = input;
+        this.aim     = input;
         this.filter  = filter;
-		this.result  = result;
-		this.imageid = imageid; 
+	this.result  = result;
+	this.imageid = imageid; 
 		
         const controls = document.createElement("div");
 
@@ -25,28 +25,28 @@ class filters {
 		    
             for (var i = 0; i < filter.length; i++) {
 				
-				var label 	 = document.createElement("label");
+				var label = document.createElement("label");
 				var currentFilter = filter[i].split(':');
 				label.innerHTML = currentFilter[0];
 				controls.appendChild(label);
 				
-                var control  	= document.createElement("input");
-				control.type 	= 'range';
-				control.name 	= currentFilter[0];
-				control.id   	= currentFilter[0];
-				control.value	= currentFilter[3];
-				control.min 	= currentFilter[1];
-				control.max 	= currentFilter[2];
+                		var control = document.createElement("input");
+				control.type = 'range';
+				control.name = currentFilter[0];
+				control.id   = currentFilter[0];
+				control.value = currentFilter[3];
+				control.min = currentFilter[1];
+				control.max = currentFilter[2];
 				
 				(function(currentFilter){
 					control.addEventListener("change", 
 					function (event) { 
-						var filterlist = new filters;
-						filterlist.addFilter(aim,imageid,currentFilter[0],event.currentTarget.value,result);
-                    });
-				})(currentFilter);
+					var filterlist = new filters;
+				filterlist.addFilter(aim,imageid,currentFilter[0],event.currentTarget.value,result);
+                    		});
+			})(currentFilter);
 				
-            controls.appendChild(control);
+            		controls.appendChild(control);
 			}
 		}
 	}
