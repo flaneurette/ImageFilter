@@ -27,3 +27,5 @@ filter.createFilters('divId','imageId',filterlist,'resultId');
  # Example
   
  See the contents of the example folder for an example.
+ 
+ <img src="https://github.com/flaneurette/ImageFilter/blob/main/example/example.png" />
