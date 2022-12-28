@@ -1,6 +1,6 @@
 # ImageFilter
 
-A JavaScript image filter for CSS.
+A JavaScript image filter for CSS. The class creates a set of given range sliders, to manipulate an image and applies the effects. Image filters can be applied continuously. The class also gives back a summed CSS rule of which effects were applied.
 
 # Initialize
 
