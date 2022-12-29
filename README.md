@@ -47,4 +47,4 @@ filter.createFilters(divId, imageId, filterlist, presets, resultId);
  
  Lightbox example with initialized presets:
  
- <img src="https://github.com/flaneurette/ImageFilter/blob/main/example/example2.jpg" />
+ <img src="https://github.com/flaneurette/ImageFilter/blob/main/example/example.png" />
