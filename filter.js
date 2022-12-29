@@ -82,6 +82,10 @@ class filters {
 					break;
 				}
 				
+				try {
+					document.getElementById(pre[0]).value = pre[1];
+				} catch(e) {}
+				
 				computed += pre[0].toLowerCase() + '(' + pre[1] + denom + ')';
 			}
 		
