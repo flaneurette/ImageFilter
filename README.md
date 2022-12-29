@@ -21,7 +21,22 @@ let filterlist = [
 	'Blur:0:10:0'
 ];
 
-filter.createFilters('divId','imageId',filterlist,'resultId');
+// presets
+
+let presets = [
+	
+	['Professional',['Grayscale:86','Contrast:200','Brightness:97','Saturate:2','Sepia:31']],
+	['Blackwhite',['Grayscale:100','Contrast:181']],
+	['Worn',['Grayscale:10','Sepia:90','Contrast:189','Brightness:102']],
+	['Fuchsia',['Hue:299','Saturate:1','Contrast:194','Brightness:130']],
+	['Ink',['Brightness:74','Contrast:200','Grayscale:100']],
+	['Moonlight',['Saturate:1','Sepia:14','Hue:175','Grayscale:77','Brightness:61','Contrast:176']],
+	['Xray',['Saturate:1','Hue:18','Brightness:71','Sepia:51','Invert:100','Contrast:200']],
+	['Flame',['Sepia:100','Saturate:7','Contrast:174']],
+		
+];
+	
+filter.createFilters('divId','imageId',filterlist,presets,'resultId');
   ```
   
  # Example
