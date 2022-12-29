@@ -2,7 +2,7 @@ const cssRules = [];
 
 class filters {
 
-	createFilters(input, imageid, filter, result) {
+	createFilters(input, imageid, filter, presets=false, result) {
 
 		this.aim = input;
 		this.filter = filter;
@@ -14,11 +14,82 @@ class filters {
 		controls.id = "controls";
 		controls.style.display = "block";
 
+		if(presets != false) {
+			this.createPresets(this.imageid, controls, presets, this.result);
+		}
+		
 		this.createSliders(this.aim, this.imageid, controls, this.filter, this.result);
 
 		document.getElementById(this.aim).appendChild(controls);
 	}
 
+	createPresets(aim, controls, presets,result) {
+		
+		if (Array.isArray(presets)) {
+			
+			var selection = document.createElement("select");
+				selection.addEventListener("change",
+				function(event) {
+						var preset = new filters;
+						preset.newPreset(aim,event.currentTarget.value,result);
+				});
+					
+			controls.appendChild(selection);
+				
+			for (var i = 0; i < presets.length; i++) {
+				
+				var control = document.createElement("option");
+				control.name = presets[i][0];
+				control.id = presets[i][0];
+				control.value = presets[i][1];
+				control.innerHTML = presets[i][0];
+				selection.appendChild(control);
+			}
+		}
+	}
+	
+	newPreset(aim,values,result) {
+		
+		var computed = 'filter:';
+		var denom = '';
+		var values = values.split(',');
+		
+		if(aim) { 
+			for(var i=0; i< values.length;i++ ) {
+				
+				var pre = values[i].split(':');
+				
+					switch (pre[0]) {
+
+					case 'Blur':
+						denom = 'px';
+					break;
+					case 'Brightness':
+					case 'Contrast':
+					case 'Grayscale':
+					case 'Invert':
+					case 'Opacity':
+					case 'Sepia':
+						denom = '%';
+					break;
+					
+					case 'Saturate':
+						denom = '';
+					break;
+					case 'Hue':
+						denom = 'deg';
+						pre[0] = 'hue-rotate';
+					break;
+				}
+				
+				computed += pre[0].toLowerCase() + '(' + pre[1] + denom + ')';
+			}
+		
+			document.getElementById(aim).style = computed + ';';
+			document.getElementById(result).value = computed + ';';
+		}
+	}
+	
 	createSliders(aim, imageid, controls, filter, result) {
 
 		if (Array.isArray(filter)) {
@@ -55,7 +126,7 @@ class filters {
 		document.getElementById(id).value = value;
 	}
 
-	pushCSS(value, imageid) {
+	pushCSS(value, imageid, result) {
 
 		for (var k = 0; k < cssRules.length; k++) {
 			var test = value.split('(');
@@ -75,7 +146,7 @@ class filters {
 		}
 
 		object.style.setProperty("filter", pushedCSS);
-		document.getElementById('result').value = 'filter:' + pushedCSS + ';';
+		document.getElementById(result).value = 'filter:' + pushedCSS + ';';
 	}
 
 	addFilter(id, imageid, filter, value, result) {
@@ -90,31 +161,31 @@ class filters {
 				switch (filter) {
 
 					case 'Blur':
-						this.pushCSS("blur(" + value + "px)", imageid);
+						this.pushCSS("blur(" + value + "px)", imageid, result);
 						break;
 					case 'Brightness':
-						this.pushCSS("brightness(" + value + "%)", imageid);
+						this.pushCSS("brightness(" + value + "%)", imageid, result);
 						break;
 					case 'Contrast':
-						this.pushCSS("contrast(" + value + "%)", imageid);
+						this.pushCSS("contrast(" + value + "%)", imageid, result);
 						break;
 					case 'Grayscale':
-						this.pushCSS("grayscale(" + value + "%)", imageid);
+						this.pushCSS("grayscale(" + value + "%)", imageid, result);
 						break;
 					case 'Hue':
-						this.pushCSS("hue-rotate(" + value + "deg)", imageid);
+						this.pushCSS("hue-rotate(" + value + "deg)", imageid, result);
 						break;
 					case 'Invert':
-						this.pushCSS("invert(" + value + "%)", imageid);
+						this.pushCSS("invert(" + value + "%)", imageid, result);
 						break;
 					case 'Opacity':
-						this.pushCSS("opacity(" + value + "%)", imageid);
+						this.pushCSS("opacity(" + value + "%)", imageid, result);
 						break;
 					case 'Saturate':
-						this.pushCSS("saturate(" + value + ")", imageid);
+						this.pushCSS("saturate(" + value + ")", imageid, result);
 						break;
 					case 'Sepia':
-						this.pushCSS("sepia(" + value + "%)", imageid);
+						this.pushCSS("sepia(" + value + "%)", imageid, result);
 						break;
 					default:
 						object.style = "filter:none;";
