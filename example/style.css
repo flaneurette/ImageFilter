@@ -16,6 +16,7 @@
 	#controls input[type="range"] {
 		clear:both;
 		width:100px;
+		accent-color: #333;
 	}
 
 	input {
@@ -57,6 +58,7 @@
 	#controls input[type="range"] {
 		clear:both;
 		width:100px;
+		accent-color: #333;
 	}
 
 		
