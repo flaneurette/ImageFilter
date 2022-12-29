@@ -23,7 +23,6 @@
 		padding: 3px;
 	}
 
-
 	#photo-editor {
 		background-color:#000;
 		opacity: 0.9;
@@ -37,11 +36,11 @@
 	#photo-editor-main {
 		background-color:#111;
 		border-radius:50px;
-		width:50%;
 		position: absolute;
 		top: 100;
 		left: 20%;
 		padding: 30px;
+		display:flex;
 	}
 
 	#photo-editor-photo {
@@ -58,7 +57,6 @@
 	#controls input[type="range"] {
 		clear:both;
 		width:100px;
-		accent-color: #333;
 	}
 
 		
