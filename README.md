@@ -43,4 +43,8 @@ filter.createFilters('divId','imageId',filterlist,presets,'resultId');
   
  See the contents of the example folder for an example.
  
- <img src="https://github.com/flaneurette/ImageFilter/blob/main/example/example-image.png" />
+ # Lightbox
+ 
+ Lightbox example:
+ 
+ <img src="https://github.com/flaneurette/ImageFilter/blob/main/example/example2.jpg" />
