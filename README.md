@@ -36,7 +36,7 @@ let presets = [
 		
 ];
 	
-filter.createFilters('divId','imageId',filterlist,presets,'resultId');
+filter.createFilters(divId, imageId, filterlist, presets, resultId);
   ```
   
  # Example
