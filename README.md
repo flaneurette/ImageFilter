@@ -1,14 +1,13 @@
 # ImageFilter
 
-A JavaScript image filter for CSS. The class creates a set of given range sliders, to manipulate an image and applies the effects. Image filters can be applied continuously. The class also gives back a summed CSS rule of which effects were applied.
+A JavaScript image filter for CSS. The class creates a set of given range sliders, to manipulate an image and applies the effects. Image filters can be applied continuously. The class also gives back a summed CSS condition, of which effects were applied.
 
 # Initialize
 
 ```
 var filter = new filters; 
-	
-// filter : min : max : default 
 
+// Initialize range sliders. Format: (filter : min : max : default) 
 let filterlist = [
 	'Brightness:0:200:100',
 	'Contrast:0:200:100',
@@ -21,8 +20,7 @@ let filterlist = [
 	'Blur:0:10:0'
 ];
 
-// presets
-
+// Create presets
 let presets = [
 	
 	['Professional',['Grayscale:86','Contrast:200','Brightness:97','Saturate:2','Sepia:31']],
@@ -35,7 +33,8 @@ let presets = [
 	['Flame',['Sepia:100','Saturate:7','Contrast:174']],
 		
 ];
-	
+
+// create the slider and apply the filters, and presets.
 filter.createFilters(divId, imageId, filterlist, presets, resultId);
   ```
   
