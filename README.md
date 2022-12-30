@@ -7,6 +7,10 @@ A JavaScript image filter for CSS. The class creates a set of given range slider
 ```
 var filter = new filters; 
 
+var divId	=  'divcontainer'; 	// the div to where the sliders are created
+var imageId	=  'image'; 		// the id of the image to manipulate
+var resultId	=  'result'; 		// the id of a text field to show the summed conditions.
+
 // Initialize range sliders. Format: (filter : min : max : default) 
 let filterlist = [
 	'Brightness:0:200:100',
