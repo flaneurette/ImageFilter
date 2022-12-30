@@ -34,7 +34,7 @@ let presets = [
 		
 ];
 
-// create the slider and apply the filters, and presets.
+// Create the filters and apply the sliders, and presets.
 filter.createFilters(divId, imageId, filterlist, presets, resultId);
   ```
   
