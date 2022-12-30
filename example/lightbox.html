@@ -5,13 +5,21 @@
 	</head>
 <body>
 
-<div id="photo-editor">
-	<div id="photo-editor-main">
-		<div id="photo-editor-photo"><img src="test.jpg" id="image" width="500" /></div>
-		<div id="photo-editor-controls"></div>
-	</div>
-<input type="text" name="result" id="result"/>
-</div>
+		<form name="photo-editor" method="post" action="">
+		<div id="photo-editor">
+		<div id="photo-editor-main">
+			<div id="photo-editor-photo"><img id="image" src="test.jpg" width="500" />
+			<div id="photo-editor-functions">
+			<input type="button" value="Reset" onclick="filter.resetFilters('image');" />
+			<input type="submit" value="Save" />
+			</div>
+			</div>
+			<div id="photo-editor-controls"></div>
+			<input type="hidden" name="photo-editor-result" id="result"/>
+			<input type="hidden" name="csrf" value="123456" />
+		</div>
+		</div>
+		</form>
 		
 <script src="../filter.js" type="text/javascript"></script>
 
