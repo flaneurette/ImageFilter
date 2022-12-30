@@ -55,6 +55,7 @@ class filters {
 		var values = values.split(',');
 		
 		if(aim) { 
+		
 			for(var i=0; i< values.length;i++ ) {
 				
 				var pre = values[i].split(':');
@@ -92,6 +93,30 @@ class filters {
 			document.getElementById(aim).style = computed + ';';
 			document.getElementById(result).value = computed + ';';
 		}
+	}
+	
+	resetFilters(imageid) {
+		
+		let filterlist = [
+			'Brightness:0:200:100',
+			'Contrast:0:200:100',
+			'Grayscale:0:100:0',
+			'Hue:0:360:0',
+			'Invert:0:100:0',
+			'Opacity:0:100:100',
+			'Saturate:0:10:0',
+			'Sepia:0:100:0',
+			'Blur:0:10:0'
+		];
+		
+		for(var i=0; i< filterlist.length;i++ ) {
+			var pre = filterlist[i].split(':');
+				try {
+					document.getElementById(pre[0]).value = pre[3];
+				} catch(e) {}
+		}
+		
+		document.getElementById(imageid).style = '';
 	}
 	
 	createSliders(aim, imageid, controls, filter, result) {
